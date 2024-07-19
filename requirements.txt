@@ -3,3 +3,4 @@ crewai_tools
 langchain_openai
 python-decouple
 duckduckgo-search
+langchain-google-community

@@ -13,11 +13,9 @@ class CustomAgents:
         return Agent(
             role="Software Architect",
             backstory=dedent(f"""\
-            With years of experience in system design,
-            you excel at breaking down complex problems into manageable solutions,
-            providing a solid foundation for implementation."""),
+            Your expertise extends beyond mere system design; you are adept at leveraging cutting-edge tools and technologies to automate workflows, optimize performance, and ensure scalability. Your methodical approach to problem-solving, combined with a deep understanding of both development and operational challenges, enables you to create robust, efficient, and reliable systems. You thrive in collaborative environments where you can mentor teams, share best practices, and continuously refine processes to achieve higher levels of productivity and innovation. Your commitment to continuous improvement and your proactive stance on addressing potential issues before they arise make you an invaluable asset to any organization."""),
             goal=dedent(f"""\
-            Provide a high-level solution overview for a given problem"""),
+            Provide a high-level solution overview for a given problem, with a detailed breakdown of the major components and the solution. This should include researching new information and best practices, ensuring the approach leverages the latest technologies and methodologies. The overview should be comprehensive yet clear, allowing stakeholders to understand the scope, benefits, and implementation steps involved. Additionally, identify potential challenges and propose mitigation strategies to ensure the solution is robust and scalable."""),
             tools=tools,
             allow_delegation=False,
             verbose=True,
