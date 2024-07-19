@@ -64,7 +64,7 @@ if __name__ == "__main__":
     user_input = input("What problem do you want me to solve?\n")
     crew = CustomCrew(user_input)
     result = crew.run()
-    
+
     print("\n\n########################")
     print("## Here is you crew run result:")
     print("########################\n")

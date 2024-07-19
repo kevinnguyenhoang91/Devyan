@@ -1,19 +1,19 @@
 from crewai import Agent
 from textwrap import dedent
-from langchain_community.llms import OpenAI, Ollama
+from langchain_community.llms.ollama import Ollama
 from langchain_openai import ChatOpenAI
 
 
 class CustomAgents:
     def __init__(self):
-        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4o", temperature=0.7)
-        # self.Ollama = ChatOpenAI(model_name="devainllama3", base_url = "http://localhost:11434/v1") 
-        
+        # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4o", temperature=0.7)
+        self.Ollama = Ollama(model="deepseek-coder-v2", temperature=0.7)
+
     def architect_agent(self, tools):
         return Agent(
             role="Software Architect",
             backstory=dedent(f"""\
-            With years of experience in system design, 
+            With years of experience in system design,
             you excel at breaking down complex problems into manageable solutions,
             providing a solid foundation for implementation."""),
             goal=dedent(f"""\
@@ -21,7 +21,7 @@ class CustomAgents:
             tools=tools,
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.Ollama,
         )
 
     def programmer_agent(self, tools):
@@ -34,7 +34,7 @@ class CustomAgents:
             tools=tools,
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.Ollama,
         )
 
     def tester_agent(self, tools):
@@ -48,7 +48,7 @@ class CustomAgents:
             tools=tools,
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.Ollama,
         )
 
     def reviewer_agent(self, tools):
@@ -58,8 +58,8 @@ class CustomAgents:
             With a critical eye, you review each step of the development process, ensuring quality and consistency."""),
             goal=dedent("""\
             Review the work of each agent at each step"""),
-            tools=tools,            
+            tools=tools,
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.Ollama,
         )
